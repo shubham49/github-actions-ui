@@ -24,4 +24,12 @@ export class AuthenticationService {
     }
     return [];
   }
+
+  saveOrg(org: string) {
+    localStorage.setItem("github-org", org);
+  }
+
+  getOrg() {
+    return localStorage.getItem("github-org") || "";
+  }
 }

@@ -13,6 +13,7 @@ export class ConfigurationComponent implements OnInit {
   availableRepos: Repo[] = [];
   selectedRepos: string[] = [];
   selectedPac = "";
+  selectedOrg = "";
   constructor(private githubService: GithubService, private authSerivce: AuthenticationService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class ConfigurationComponent implements OnInit {
     });
     this.selectedRepos = this.authSerivce.getTrackingRepos();
     this.selectedPac = this.authSerivce.getToken();
+    this.selectedOrg = this.authSerivce.getOrg();
   }
 
   saveToken(pac: string) {
@@ -40,6 +42,10 @@ export class ConfigurationComponent implements OnInit {
 
   pacChange() {
     this.authSerivce.saveToken(this.selectedPac);
+  }
+
+  orgChange() {
+    this.authSerivce.saveOrg(this.selectedOrg);
   }
 
 }

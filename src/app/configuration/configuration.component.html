@@ -5,6 +5,13 @@
       </mat-form-field>    
 </section>
 
+<section>
+    <mat-form-field>
+        <mat-label>Organisation</mat-label>
+        <input matInput [(ngModel)]="selectedOrg" (ngModelChange)="orgChange()">
+      </mat-form-field>    
+</section>
+
 <section class="repos-selection-section">
     <h4>Select your repos for tracking:</h4>
     <ul>

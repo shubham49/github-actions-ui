@@ -10,16 +10,17 @@ import { AuthenticationService } from './authentication.service';
 export class GithubService {
 
   gitApiUrl = "https://cors-anywhere.herokuapp.com/https://api.github.com";
-  orgName = "tcs-chennai"
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
 
   getAllRepos() {
-    return this.http.get<Repo[]>(`${this.gitApiUrl}/orgs/${this.orgName}/repos`);
+    const orgName = this.authService.getOrg();
+    return this.http.get<Repo[]>(`${this.gitApiUrl}/orgs/${orgName}/repos`);
   }
 
   getWorkflowRuns(repo: string) {
-    return this.http.get<WorkflowRuns>(`${this.gitApiUrl}/repos/${this.orgName}/${repo}/actions/runs?per_page=5`);
+    const orgName = this.authService.getOrg();
+    return this.http.get<WorkflowRuns>(`${this.gitApiUrl}/repos/${orgName}/${repo}/actions/runs?per_page=5`);
   }
 
 }
