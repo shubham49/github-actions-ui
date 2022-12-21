@@ -1,0 +1,17 @@
+<section>
+    <mat-form-field>
+        <mat-label>Github personal access token</mat-label>
+        <input matInput type="password" [(ngModel)]="selectedPac" (ngModelChange)="pacChange()">
+      </mat-form-field>    
+</section>
+
+<section class="repos-selection-section">
+    <h4>Select your repos for tracking:</h4>
+    <ul>
+        <li *ngFor="let repo of availableRepos">
+            <mat-checkbox (change)="selectRepo(repo, $event.checked)" [checked]="selectedRepos.includes(repo.name)">
+                {{repo.name}}
+            </mat-checkbox>
+        </li>
+    </ul>
+</section>
