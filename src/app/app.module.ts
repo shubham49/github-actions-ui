@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ConfigurationComponent } from './configuration/configuration.component'
     ListingComponent,
     ConfirmDialogComponent,
     ConfigurationComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
