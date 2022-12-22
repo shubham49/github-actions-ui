@@ -21,7 +21,7 @@ export class ListingComponent implements OnInit {
 
   ngOnInit(): void {
     const trackingRepos = this.authService.getTrackingRepos();
-
+    this.isGroupView = JSON.parse(localStorage.getItem('github-actions-ui-isGroupView') || 'false');
     forkJoin(trackingRepos.map((element: string) => this.githubService.getWorkflowRuns(element)))
       .subscribe((data: any) => this.populateData(data));
   }
@@ -34,5 +34,6 @@ export class ListingComponent implements OnInit {
 
   onViewChange(isGroupView: boolean) {
     this.isGroupView = isGroupView;
+    localStorage.setItem('github-actions-ui-isGroupView', JSON.stringify(isGroupView));
   }
 }

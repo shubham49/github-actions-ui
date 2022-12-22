@@ -23,4 +23,9 @@ export class GithubService {
     return this.http.get<WorkflowRuns>(`${this.gitApiUrl}/repos/${orgName}/${repo}/actions/runs?per_page=5`);
   }
 
+  cancelRun(repo: string, id: number) {
+    const orgName = this.authService.getOrg();
+    return this.http.post(`${this.gitApiUrl}/repos/${orgName}/${repo}/actions/runs/${id}/cancel`, {});
+  }
+
 }

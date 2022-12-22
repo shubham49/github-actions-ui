@@ -1,8 +1,10 @@
-<mat-card class="repo-container pointer" *ngFor="let run of workflowRuns.workflow_runs"
-    (click)="openRun(run.html_url)">
+<mat-card class="repo-container pointer" *ngFor="let run of workflowRuns.workflow_runs" (click)="openRun(run.html_url)">
     <mat-card-content class="repo">
         {{run.name}} | {{run.display_title}}
         <app-run-status [run]="run"></app-run-status>
         {{ run.run_started_at | date: 'dd-MM-y h:mm a' : '+0530' }}
+        <button *ngIf="run.conclusion == null" mat-icon-button color="primary" (click)="cancelRun(run, $event)">
+            <mat-icon>delete</mat-icon>
+        </button>
     </mat-card-content>
 </mat-card>
