@@ -28,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { LoaderComponent } from './loader/loader.component';
-import { WorkflowRunComponent } from './workflow-run/workflow-run.component';
+import { RunStatusComponent } from './run-status/run-status.component';
+import { WorkflowRunsComponent } from './workflow-runs/workflow-runs.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { WorkflowRunComponent } from './workflow-run/workflow-run.component';
     ConfirmDialogComponent,
     ConfigurationComponent,
     LoaderComponent,
-    WorkflowRunComponent,
+    RunStatusComponent,
+    WorkflowRunsComponent,
   ],
   imports: [
     BrowserModule,

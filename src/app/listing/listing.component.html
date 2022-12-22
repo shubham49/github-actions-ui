@@ -7,42 +7,13 @@
         <mat-expansion-panel-header class="repo">
             <mat-panel-title>
                 <strong>{{repoRuns.workflow_runs[0].repository.name}}</strong>
+                <app-run-status [run]="repoRuns.workflow_runs[0]"></app-run-status>
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-card class="repo-container pointer" *ngFor="let run of repoRuns.workflow_runs"
-            (click)="openRun(run.html_url)">
-            <mat-card-content class="repo">
-                {{run.name}} | {{run.display_title}} || {{ run.conclusion }}
-                <span *ngIf="run.conclusion === 'success'" class="check-icon" mat-icon-button>
-                    <mat-icon>check</mat-icon>
-                </span>
-                <span *ngIf="run.conclusion == null" class="pending-icon" mat-icon-button>
-                    <mat-icon>pending</mat-icon>
-                </span>
-                <span *ngIf="run.conclusion === 'failure'" class="close-icon" mat-icon-button>
-                    <mat-icon>close</mat-icon>
-                </span>
-                {{ run.run_started_at | date: 'dd-MM-y h:mm a' : '+0530' }}
-            </mat-card-content>
-        </mat-card>
+        <app-workflow-runs [workflowRuns]="repoRuns"></app-workflow-runs>
     </mat-expansion-panel>
 </mat-accordion>
 
 <div *ngIf="!isGroupView">
-    <mat-card class="repo-container pointer" *ngFor="let run of allWorkflowRuns.workflow_runs"
-        (click)="openRun(run.html_url)">
-        <mat-card-content class="repo">
-            {{run.name}} | {{run.display_title}}
-            <span *ngIf="run.conclusion === 'success'" class="check-icon" mat-icon-button>
-                <mat-icon>check</mat-icon>
-            </span>
-            <span *ngIf="run.conclusion == null" class="pending-icon" mat-icon-button>
-                <mat-icon>pending</mat-icon>
-            </span>
-            <span *ngIf="run.conclusion === 'failure'" class="close-icon" mat-icon-button>
-                <mat-icon>close</mat-icon>
-            </span>
-            {{ run.run_started_at | date: 'dd-MM-y h:mm a' : '+0530' }}
-        </mat-card-content>
-    </mat-card>
+    <app-workflow-runs [workflowRuns]="allWorkflowRuns"></app-workflow-runs>
 </div>

@@ -1,0 +1,8 @@
+<mat-card class="repo-container pointer" *ngFor="let run of workflowRuns.workflow_runs"
+    (click)="openRun(run.html_url)">
+    <mat-card-content class="repo">
+        {{run.name}} | {{run.display_title}}
+        <app-run-status [run]="run"></app-run-status>
+        {{ run.run_started_at | date: 'dd-MM-y h:mm a' : '+0530' }}
+    </mat-card-content>
+</mat-card>

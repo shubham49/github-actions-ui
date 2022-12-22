@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkflowRunComponent } from './workflow-run.component';
+import { RunStatusComponent } from './run-status.component';
 
-describe('WorkflowRunComponent', () => {
-  let component: WorkflowRunComponent;
-  let fixture: ComponentFixture<WorkflowRunComponent>;
+describe('RunStatusComponent', () => {
+  let component: RunStatusComponent;
+  let fixture: ComponentFixture<RunStatusComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkflowRunComponent ]
+      declarations: [ RunStatusComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WorkflowRunComponent);
+    fixture = TestBed.createComponent(RunStatusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

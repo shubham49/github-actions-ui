@@ -32,10 +32,6 @@ export class ListingComponent implements OnInit {
     this.allWorkflowRuns.workflow_runs = orderBy(this.allWorkflowRuns.workflow_runs, 'run_started_at', 'desc');
   }
 
-  openRun(url: string) {
-    window.open(url, '_blank');
-  }
-
   onViewChange(isGroupView: boolean) {
     this.isGroupView = isGroupView;
   }

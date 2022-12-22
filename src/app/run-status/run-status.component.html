@@ -1,0 +1,11 @@
+<span *ngIf="run">
+    <span *ngIf="run.conclusion === 'success'" class="check-icon" mat-icon-button>
+        <mat-icon>check</mat-icon>
+    </span>
+    <span *ngIf="run.conclusion == null" class="pending-icon" mat-icon-button>
+        <mat-icon>pending</mat-icon>
+    </span>
+    <span *ngIf="run.conclusion === 'failure'" class="close-icon" mat-icon-button>
+        <mat-icon>close</mat-icon>
+    </span>
+</span>
