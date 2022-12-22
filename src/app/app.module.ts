@@ -28,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { LoaderComponent } from './loader/loader.component';
+import { WorkflowRunComponent } from './workflow-run/workflow-run.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { LoaderComponent } from './loader/loader.component';
     ConfirmDialogComponent,
     ConfigurationComponent,
     LoaderComponent,
+    WorkflowRunComponent,
   ],
   imports: [
     BrowserModule,
