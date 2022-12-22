@@ -15,7 +15,7 @@ export class GithubService {
 
   getAllRepos() {
     const orgName = this.authService.getOrg();
-    return this.http.get<Repo[]>(`${this.gitApiUrl}/orgs/${orgName}/repos`);
+    return this.http.get<Repo[]>(`${this.gitApiUrl}/orgs/${orgName}/repos?per_page=100`);
   }
 
   getWorkflowRuns(repo: string) {

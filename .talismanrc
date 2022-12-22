@@ -4,6 +4,6 @@ fileignoreconfig:
 - filename: src/environments/environment.ts
   checksum: b1ee1d2c3e28b2bb65fb13bc3944872e508025896c4aa1bb0143f0c0d4bca892
 - filename: package-lock.json
-  checksum: 8d3f05dee91c4266bc4c5280feca8af50176a4c2892db6425f15668136d3f403
+  checksum: e83363f6de5b859cfece050a38075d54f3f960009a64157b5afb3e9ea8822769
 - filename: src/app/configuration/configuration.component.html
   checksum: 1cbb322aed4b435e001e741fcd0578e1c1e12b9095c407acb44293a70eb9dfec

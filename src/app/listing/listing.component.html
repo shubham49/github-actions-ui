@@ -1,11 +1,16 @@
-<mat-accordion>
+<mat-checkbox (change)="onViewChange($event.checked)" [checked]="isGroupView">
+    Group view
+</mat-checkbox>
+
+<mat-accordion *ngIf="isGroupView">
     <mat-expansion-panel class="repo-container" *ngFor="let repoRuns of reposWorkflowRuns">
         <mat-expansion-panel-header class="repo">
             <mat-panel-title>
                 <strong>{{repoRuns.workflow_runs[0].repository.name}}</strong>
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-card class="repo-container pointer" *ngFor="let run of repoRuns.workflow_runs" (click)="openRun(run.html_url)">
+        <mat-card class="repo-container pointer" *ngFor="let run of repoRuns.workflow_runs"
+            (click)="openRun(run.html_url)">
             <mat-card-content class="repo">
                 {{run.name}} | {{run.display_title}}
                 <span *ngIf="run.conclusion === 'success'" class="check-icon" mat-icon-button>
@@ -14,7 +19,24 @@
                 <span *ngIf="run.conclusion !== 'success'" class="close-icon" mat-icon-button>
                     <mat-icon>close</mat-icon>
                 </span>
+                {{ run.run_started_at | date: 'dd-MM-y h:mm a' : '+0530' }}
             </mat-card-content>
         </mat-card>
     </mat-expansion-panel>
 </mat-accordion>
+
+<div *ngIf="!isGroupView">
+    <mat-card class="repo-container pointer" *ngFor="let run of allWorkflowRuns.workflow_runs"
+        (click)="openRun(run.html_url)">
+        <mat-card-content class="repo">
+            {{run.name}} | {{run.display_title}}
+            <span *ngIf="run.conclusion === 'success'" class="check-icon" mat-icon-button>
+                <mat-icon>check</mat-icon>
+            </span>
+            <span *ngIf="run.conclusion !== 'success'" class="close-icon" mat-icon-button>
+                <mat-icon>close</mat-icon>
+            </span>
+            {{ run.run_started_at | date: 'dd-MM-y h:mm a' : '+0530' }}
+        </mat-card-content>
+    </mat-card>
+</div>
